@@ -1,0 +1,7 @@
+wu-combo-box {
+    &:not(:state(initialized)) {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+}

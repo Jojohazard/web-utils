@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cb__input {
+    cursor: pointer;
+    outline: none;
+}
+
+.cb__items {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+:host(:state(hidden)) .cb__items {
+    top: 0;
+    height: 100%;
+    overflow-Y: hidden;
+    visibility: hidden;
+}
+
+:host(:not(:state(hidden))) .cb__items {
+    background-color: white;
+    visibility: visible;
+    overflow-Y: auto;
+    z-index: 10;
+}
+
+wu-combo-item {
+    cursor: pointer;
+}
+
+wu-combo-item:state(hidden) {
+    display: none;
+}
+
+wu-combo-item:state(selected) {
+    background-color: black;
+    color: white;
+}

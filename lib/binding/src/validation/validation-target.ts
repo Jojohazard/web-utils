@@ -1,0 +1,1 @@
+export type ValidationTarget = Record<string, unknown>;

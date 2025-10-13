@@ -1,0 +1,1 @@
+export type FunctionMap = Record<string, (...args: any) => any>;

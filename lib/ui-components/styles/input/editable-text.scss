@@ -1,0 +1,59 @@
+wu-editable-text {
+    position: relative;
+
+    wu-text-editor-panel {
+        bottom: 100%;
+        position: absolute;
+    }
+}
+
+wu-text-editor-panel {
+    display: flex;
+    column-gap: 10px;
+
+    .tep__bold,
+    .tep__cursive,
+    .tep__underline,
+    .tep__center,
+    .tep__justify,
+    .tep__left,
+    .tep__right {
+        display: block;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        background-color: inherit;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+    }
+
+    .tep__bold {
+        background-image: url('icons/bold.svg');
+    }
+
+    .tep__cursive {
+        background-image: url('icons/cursive.svg');
+    }
+
+    .tep__underline {
+        background-image: url('icons/underline.svg');
+    }
+
+    .tep__center {
+        background-image: url('icons/align-center.svg');
+    }
+
+    .tep__justify {
+        background-image: url('icons/align-justify.svg');
+    }
+
+    .tep__left {
+        background-image: url('icons/align-left.svg');
+    }
+
+    .tep__right {
+        background-image: url('icons/align-right.svg');
+    }
+}

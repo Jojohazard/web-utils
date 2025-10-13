@@ -1,0 +1,49 @@
+wu-loadable-container {
+    &:not(:state(initialized)),
+    &:not(:state(loaded)) {
+        overflow: hidden;
+
+        .lc__target,
+        img,
+        video,
+        audio,
+        iframe {
+            opacity: 0;
+        }
+    }
+
+    &:state(loaded)::after {
+        display: none;
+    }
+
+    &:not(:state(loaded))::after {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        inset: 0;
+        content: 'loading...';
+    }
+
+    &:state(loaded) {
+        img,
+        video,
+        audio,
+        iframe,
+        .lc__target {
+            opacity: 1;
+        }
+    }
+
+    img,
+    video,
+    audio,
+    iframe,
+    .lc__target {
+        height: 100%;
+        width: 100%;
+        transition: opacity 0.6s ease;
+    }
+}

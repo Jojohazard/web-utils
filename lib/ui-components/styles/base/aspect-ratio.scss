@@ -1,0 +1,8 @@
+.jwc__ar {
+    position: relative;
+    display: flex;
+
+    &.jwc__ar--16-9 {
+        aspect-ratio: 16 / 9;
+    }
+}

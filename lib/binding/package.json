@@ -1,0 +1,13 @@
+{
+  "name": "binding",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "clean": "rm -rf ./build"
+  },
+  "dependencies": {
+    "testing": "1.0.0"
+  }
+}
