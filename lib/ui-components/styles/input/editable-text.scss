@@ -5,6 +5,18 @@ wu-editable-text {
         bottom: 100%;
         position: absolute;
     }
+
+    .wu__bold {
+        font-weight: bold;
+    }
+
+    .wu__cursive {
+        font-style: italic;
+    }
+
+    .wu__underline {
+        text-decoration: underline;
+    }
 }
 
 wu-text-editor-panel {

@@ -9,10 +9,13 @@ export class EditableText extends InputComponent {
                 { tagName: 'wu-text-editor-panel' }
             ]
         });
+
+        this.#boundKeyDownHandler = this.#handleKeyDown.bind(this);
     }
 
     #text: HTMLElement | undefined;
     #textEditorPanel: TextEditorPanel | undefined;
+    #boundKeyDownHandler: (e: KeyboardEvent) => void;
 
     get text(): HTMLElement {
         if (this.#text == undefined) {
@@ -24,7 +27,7 @@ export class EditableText extends InputComponent {
         return this.#text;
     }
 
-    get textEditorPanel() {
+    get textEditorPanel(): TextEditorPanel {
         if (this.#textEditorPanel == undefined) {
             const textEditorPanel = this.querySelector('wu-text-editor-panel') as TextEditorPanel;
             if (textEditorPanel == null) throw new Error('wu-text-editor-panel missing');
@@ -42,10 +45,17 @@ export class EditableText extends InputComponent {
         await super._init();
 
         this.textEditorPanel.textFormater = new TextFormater(this.text);
+        this.addEventListener('keydown', this.#boundKeyDownHandler);
     }
 
-    static define(tagName: string) {
+    static define(tagName: string): void {
         super.define(tagName);
         TextEditorPanel.define('wu-text-editor-panel');
+    }
+
+    #handleKeyDown(e: KeyboardEvent): void {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
     }
 }

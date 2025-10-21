@@ -3,6 +3,7 @@ import type { Decoration } from "./decoration.js";
 export class TextFormater {
     constructor(textContainer: HTMLElement) {
         this.#textContainer = textContainer;
+        this.#textContainer.innerHTML = this.#textContainer.innerHTML.trim();
     }
 
     #textContainer: HTMLElement;
@@ -80,7 +81,7 @@ export class TextFormater {
             : range.startOffset;
 
         let endOffset = startContainer === endContainer
-            ? Math.min(range.startOffset, range.endOffset)
+            ? Math.max(range.startOffset, range.endOffset)
             : range.endOffset;
 
         if (range.collapsed) {
@@ -148,7 +149,7 @@ export class TextFormater {
         const childNodes = this.containerChildNodes;
         const decorateAll = this.#selectionContainsUnDecorated(startNodeIndex, endNodeIndex, startOffset, endOffset, decoration);
 
-        for (let i = startNodeIndex; i <= endNodeIndex && i < childNodes.length - 1; i++) {
+        for (let i = startNodeIndex; i <= endNodeIndex && i < childNodes.length; i++) {
             if (i < 0) break;
             const node = childNodes[i] as ChildNode;
             const nodeLength = node?.textContent?.length;
